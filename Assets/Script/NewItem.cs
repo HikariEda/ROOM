@@ -17,10 +17,10 @@ public class NewItem : MonoBehaviour {
 		
 	}
 
+	//アイテムを設置する
 	public void install(int number)
 	{
 		this.number = number;
-		//アイテムを設置
 		Instantiate (installitem[number]);
 	}
 }
