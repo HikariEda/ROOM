@@ -6,10 +6,13 @@ public class NewItem : MonoBehaviour {
 	
 	public GameObject[] installitem;
 	public int number;
+	private List<GameObject> myList;
 
 	// Use this for initialization
 	void Start () {
-		
+		if (myList == null) {
+			myList = new List<GameObject> ();
+		}
 	}
 	
 	// Update is called once per frame
@@ -21,6 +24,19 @@ public class NewItem : MonoBehaviour {
 	public void install(int number)
 	{
 		this.number = number;
-		Instantiate (installitem[number]);
+		GameObject go = Instantiate (installitem[number]);
+		if (myList == null) {
+			myList = new List<GameObject> ();
+		}
+		myList.Add (go);
 	}
+
+	public void MoveOnOff(bool value){
+		if (myList != null) {
+			for (int i = 0; i < myList.Count; i++) {
+				myList [i].GetComponent<MouseDrag> ().on = value;
+			}
+		}
+	}
+
 }
