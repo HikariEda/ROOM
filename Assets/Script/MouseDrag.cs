@@ -4,6 +4,15 @@ public class MouseDrag : MonoBehaviour
 {
 	public bool on = true;
 
+	void OnTriggerExit2D(Collider2D col)
+	{
+		if (col.gameObject.tag == "Floor") {
+			Debug.Log ("けす");
+			Destroy (gameObject);
+		}
+	}
+
+
 	void OnMouseDrag()
 	{
 		// コメント
